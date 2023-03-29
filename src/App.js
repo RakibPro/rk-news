@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import { routes } from './Routes/Routes/Routes';
 
 function App() {
   return (
     <div className="App">
-      <h1>RK_News</h1>
+      <RouterProvider router={routes}></RouterProvider>
     </div>
   );
 }
