@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,12 +7,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 import { Link } from 'react-router-dom';
 
-
 const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="light`" variant="light">
             <Container>
-                <Navbar.Brand><Link to={"/"}>RK_News</Link></Navbar.Brand>
+                <Navbar.Brand><Link to={"/"} className='text-decoration-none'>
+                    <span className='bg-primary text-white ps-2 pe-2 pb-1 me-1 rounded'>RK</span>
+                    <span>News</span></Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
