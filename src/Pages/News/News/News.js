@@ -5,7 +5,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 const News = () => {
     const news = useLoaderData();
     const { title, details, image_url, category_id } = news;
-    console.log(news);
     return (
         <div>
             <Card style={{ width: '40rem' }}>
