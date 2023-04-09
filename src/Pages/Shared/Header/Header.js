@@ -7,10 +7,17 @@ import LeftSideNav from '../LeftSideNav/LeftSideNav';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch((error) => console.error(error));
+    };
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="light`" variant="light">
             <Container>
@@ -26,18 +33,33 @@ const Header = () => {
                         <Nav.Link href="#about">About Us</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#user">{user?.displayName}</Nav.Link>
-                        <Nav.Link eventKey={2} href="#">
+                        <div>
                             {
                                 user?.photoURL ?
                                     <Image
-                                        style={{ height: '30px' }} roundedCircle
+                                        className='mt-1 me-2'
+                                        style={{ height: '30px' }}
+                                        roundedCircle
                                         src={user?.photoURL}
                                     ></Image>
                                     :
-                                    <FaUserAlt />
+                                    <FaUserAlt className='mt-2' />
                             }
-                        </Nav.Link>
+                        </div>
+                        <div className=' d-flex align-items-center'>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <span>{user?.displayName}</span>
+                                        <Button className='ms-3 text-white text-decoration-none fw-bold' onClick={handleLogOut} variant="danger">LogOut</Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Button className='ms-3' variant="success"><Link className='text-white text-decoration-none fw-bold' to={'/login'}>Login</Link></Button>
+                                        <Button className='ms-2' variant="primary"><Link className='text-white text-decoration-none fw-bold' to={'/register'}>Register</Link></Button>
+                                    </>
+                            }
+                        </div>
                     </Nav>
                     <div className='d-lg-none'>
                         <LeftSideNav></LeftSideNav>
