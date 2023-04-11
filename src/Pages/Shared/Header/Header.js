@@ -55,8 +55,8 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Button className='ms-3' variant="success"><Link className='text-white text-decoration-none fw-bold' to={'/login'}>Login</Link></Button>
-                                        <Button className='ms-2' variant="primary"><Link className='text-white text-decoration-none fw-bold' to={'/register'}>Register</Link></Button>
+                                        <Button className='ms-3' variant="success"><Link className='text-white text-decoration-none fw-bold' to='/login'>Login</Link></Button>
+                                        <Button className='ms-2' variant="primary"><Link className='text-white text-decoration-none fw-bold' to='/register'>Register</Link></Button>
                                     </>
                             }
                         </div>
